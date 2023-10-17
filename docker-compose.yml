@@ -60,26 +60,26 @@ services:
 
   ## Frontends
   ##
-  octoprint:
-    image: octoprint/octoprint:minimal
-    restart: unless-stopped
-    depends_on:
-      klipper:
-        condition: service_started
-    privileged: true
-    volumes:
-      - /dev:/dev
-      - run:/opt/printer_data/run
-      - octoprint:/octoprint
-      - ./config/octoprint.yaml:/octoprint/octoprint/config.yaml
-    profiles:
-      - octoprint
-    labels:
-      org.prind.service: octoprint
-      traefik.enable: true
-      traefik.http.services.octoprint.loadbalancer.server.port: 5000
-      traefik.http.routers.octoprint.rule: PathPrefix(`/`)
-      traefik.http.routers.octoprint.entrypoints: web
+#  octoprint:
+#    image: octoprint/octoprint:minimal
+#    restart: unless-stopped
+#    depends_on:
+#      klipper:
+#        condition: service_started
+#    privileged: true
+#    volumes:
+#      - /dev:/dev
+#      - run:/opt/printer_data/run
+#      - octoprint:/octoprint
+#      - ./config/octoprint.yaml:/octoprint/octoprint/config.yaml
+#    profiles:
+#      - octoprint
+#    labels:
+#      org.prind.service: octoprint
+#      traefik.enable: true
+#      traefik.http.services.octoprint.loadbalancer.server.port: 5000
+#      traefik.http.routers.octoprint.rule: PathPrefix(`/`)
+#      traefik.http.routers.octoprint.entrypoints: web
 
   fluidd:
     image: ghcr.io/fluidd-core/fluidd:latest
@@ -123,19 +123,19 @@ services:
     labels:
       org.prind.service: klipperscreen
 
-  moonraker-telegram-bot:
-    image: lefskiy/moonraker-telegram-bot:development
-    restart: unless-stopped
-    logging:
-      driver: none
-    profiles:
-      - moonraker-telegram-bot
-    volumes:
-      - gcode:/opt/printer_data/gcodes
-      - log:/opt/printer_data/logs
-      - ./config:/opt/printer_data/config
-    labels:
-      org.prind.service: moonraker-telegram-bot
+#  moonraker-telegram-bot:
+#    image: lefskiy/moonraker-telegram-bot:development
+#    restart: unless-stopped
+#    logging:
+#      driver: none
+#    profiles:
+#      - moonraker-telegram-bot
+#    volumes:
+#      - gcode:/opt/printer_data/gcodes
+#      - log:/opt/printer_data/logs
+#      - ./config:/opt/printer_data/config
+#    labels:
+#      org.prind.service: moonraker-telegram-bot
 
   mobileraker_companion:
     image: ghcr.io/clon1998/mobileraker_companion:latest
