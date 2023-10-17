@@ -13,7 +13,7 @@
 ##
 ## Setup:
 ## 1. Check out prind to a permanent directory
-##      > git clone https://github.com/mkuf/prind/ /root/prind
+##      > git clone https://github.com/kirbo/prind/ /root/prind
 ## 2. Change permissions for the prind directory
 ##      > chown -R 1000:1000 /root/prind
 ## 3. Update the Devices used for klipper and the webcam service
